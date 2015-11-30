@@ -9,5 +9,7 @@ Rails.application.routes.draw do
     end
   end
 
-  root "todo_lists#index"
+  devise_scope :user do
+    root :to => 'devise/sessions#new'
+  end
 end
