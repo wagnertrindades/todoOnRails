@@ -6,5 +6,6 @@
 <% end -%>
 
 <div class="links">
-  <%= link_to "Criar Todo List", new_todo_list_path %>
+  <%= link_to "Criar Todo List", new_todo_list_path %> |
+  <%= link_to "Sair", destroy_user_session_path, method: :delete %>
 </div>
