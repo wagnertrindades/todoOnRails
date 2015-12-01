@@ -1,7 +1,7 @@
 <% content_for :aside do %>
-    <p>Bem vindo, <%= @user.name %></p>
-    <%= link_to "Editar conta", edit_user_registration_path %>
+    <p class="name">Bem vindo, <span><%= @user.name %></span></p>
     <div class="links">
+        <%= link_to "Editar conta", edit_user_registration_path %> |
         <%= link_to "Sair", destroy_user_session_path, method: :delete %>
     </div>
 <% end -%>
@@ -16,3 +16,60 @@
 <div class="links">
   <%= link_to "Criar Todo List", new_todo_list_path %>
 </div>
+
+<% content_for :js do %>
+    <script>
+        var aside = $('aside');
+
+        function asideHideAnimate(){ 
+            setTimeout(function(){
+                aside.fadeOut();
+            }, 2000);
+
+            setTimeout(function(){
+                aside.after('<a id="menu" href="#" class="box button-menu">M</a>');
+
+                var menu = $('#menu');
+
+                menu.on("click", function(event){
+                    $(this).fadeOut(300);
+                    aside.fadeIn(600);
+                    $(aside).after( '<a id="back" href="#" class="box button-menu"> << </a>' ).fadeIn(600);
+
+                    event.preventdefault();
+                });
+            }, 3000);
+
+            
+                
+            // aside.animate({
+            //     marginLeft: "-=400"
+            // }, 1000, function(){
+            //     $('#back').hide();
+            //     $(this).after( '<a id="menu" href="#" class="box button-menu">M</a>' );
+            //     asideShowAnimate();
+            // });
+        };
+
+        asideHideAnimate();
+
+
+
+        function asideShowAnimate(){
+            var menu = $('#menu');
+                
+            menu.on("click", function(event){
+                $(this).hide();
+                aside.animate({
+                    marginLeft: "+=400"
+                }, 1000, function(){
+                    $(this).after( '<a id="back" href="#" class="box button-menu"> << </a>' );
+                    $('#back').on("click", function(){ asideHideAnimate(); });
+                });
+
+                event.preventdefault();
+            });
+        };
+
+    </script>
+<% end -%>
