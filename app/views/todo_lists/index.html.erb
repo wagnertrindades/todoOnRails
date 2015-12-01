@@ -1,3 +1,11 @@
+<% content_for :aside do %>
+    <p>Bem vindo, <%= @user.name %></p>
+    <%= link_to "Editar conta", edit_user_registration_path %>
+    <div class="links">
+        <%= link_to "Sair", destroy_user_session_path, method: :delete %>
+    </div>
+<% end -%>
+
 <% @todo_lists.each do |todo_list| %>
   <div class="index_row clearfix">
     <h2 class="todo_list_title"><%= link_to todo_list.title, todo_list %></h2>
@@ -6,6 +14,5 @@
 <% end -%>
 
 <div class="links">
-  <%= link_to "Criar Todo List", new_todo_list_path %> |
-  <%= link_to "Sair", destroy_user_session_path, method: :delete %>
+  <%= link_to "Criar Todo List", new_todo_list_path %>
 </div>
