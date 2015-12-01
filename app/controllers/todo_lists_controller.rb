@@ -1,7 +1,8 @@
 class TodoListsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_user
   before_action :set_todo_list, only: [:show, :edit, :update, :destroy]
-    before_action :set_user
+    
 
   # GET /todo_lists
   # GET /todo_lists.json
@@ -66,7 +67,7 @@ class TodoListsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_todo_list
-      @todo_list = current_user.todo_list.find(params[:id])
+      @todo_list = @user.todo_list.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
