@@ -51,15 +51,38 @@ body {
     font-weight: 100;
 }
 
-.container {
-    width: 50%;
-    max-width: 750px;
+.box {
     background: $white_opaque;
-    margin: 3em auto 0 auto;
     border-radius: 7px;
     -webkit-box-shadow: 0 0 4px 3px rgba(0,0,0,.3);
     box-shadow: 0 0 4px 4px rgba(0,0,0,.03);
+}
+
+aside {
+    width: 25%;
+    max-width: 300px;
+    padding: 1em;
+    float: left;
+    
+    h2 {
+        color: white;
+    }
+}
+
+.container {
+    width: 50%;
+    max-width: 750px;
+    margin: 3em auto 0 auto;
     padding: 1em 0;
+}
+
+.text-welcome {
+    text-align: center;
+    padding: 1em 2em;
+
+    h2 {
+        color: white;
+    }
 }
 
 .todo_list_title {
@@ -178,10 +201,18 @@ body {
 .forms {
     padding: 0 5%;
 }
+.forms-user {
+    .actions{
+        margin: 1em 0;
+    }
+}
 label {
     color: $dark;
 }
-input[type="text"], textarea {
+input[type="text"], 
+input[type="email"], 
+input[type="password"], 
+textarea {
     width: 100%;
     margin: .5em 2% 1em 0;
     display: inline-block;

@@ -10,7 +10,11 @@
 </head>
 <body>
 
-<div class="container">
+<aside class="box">
+    <%= yield :aside %>
+</aside>
+
+<div class="container box">
     <%= yield %>
 </div>
 
