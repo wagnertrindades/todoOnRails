@@ -13,8 +13,10 @@
  *= require_tree .
  *= require_self
  */
-
+    
  $white_opaque: rgba(250, 250, 250, .3);
+ $green_opaque: rgba(0, 250, 0, .3);
+ $red_opaque: rgba(255, 0, 0, .3);
  $dark: #1F7972;
 
 * {
@@ -53,6 +55,25 @@ h3, h2{
     font-size: 0.6em;
     color: $dark;
     font-weight: 100;
+}
+
+.info {
+    display: block;
+    width: auto;
+    position: absolute;
+    top: 10px;
+    right: 50px;
+    padding: 10px;
+    border-radius: 7px;
+    -webkit-box-shadow: 0 0 4px 3px rgba(0,0,0,.3);
+    box-shadow: 0 0 4px 4px rgba(0,0,0,.03);
+    background: $white_opaque;
+}
+.notice{
+    background: $green_opaque;
+}
+.error{
+    background: $red_opaque;
 }
 
 .box {
