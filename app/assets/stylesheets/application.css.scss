@@ -16,7 +16,7 @@
     
  $white_opaque: rgba(250, 250, 250, .3);
  $green_opaque: rgba(0, 250, 0, .3);
- $red_opaque: rgba(255, 0, 0, .3);
+ $red_opaque: rgba(255, 0, 0, .6);
  $dark: #094097;
  // Green
  //$dark: #1F7972;
@@ -71,6 +71,7 @@ h3, h2{
     -webkit-box-shadow: 0 0 4px 3px rgba(0,0,0,.3);
     box-shadow: 0 0 4px 4px rgba(0,0,0,.03);
     background: $white_opaque;
+    color: white;
 }
 .notice{
     background: $green_opaque;
