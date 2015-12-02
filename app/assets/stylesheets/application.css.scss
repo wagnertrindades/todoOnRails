@@ -144,6 +144,21 @@ aside {
     padding: 1em 0;
 }
 
+.link-github {
+    width: 64px;
+    height: 64px;
+    display: block;
+    background-image: image-url("github.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    margin: 30px auto 0;
+    
+    &:hover{
+        -webkit-filter: drop-shadow(1px 1px 1px #222);
+        filter:         drop-shadow(1px 1px 1px #222); 
+    }
+}
+
 .text-welcome {
     text-align: center;
     padding: 1em 2em;
