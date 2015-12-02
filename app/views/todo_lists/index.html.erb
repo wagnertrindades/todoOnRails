@@ -17,59 +17,66 @@
   <%= link_to "Criar Todo List", new_todo_list_path %>
 </div>
 
+
 <% content_for :js do %>
     <script>
         var aside = $('aside');
+        var firstAnimation = true;
 
-        function asideHideAnimate(){ 
+        function asideAnimation(){ 
+            asideHide();
+            menuShow();
+            firstAnimation = false;
+        };
+        
+        asideAnimation();
+
+        function asideHide(){
             setTimeout(function(){
                 aside.fadeOut();
             }, 2000);
-
-            setTimeout(function(){
-                aside.after('<a id="menu" href="#" class="box button-menu">M</a>');
-
-                var menu = $('#menu');
-
-                menu.on("click", function(event){
-                    $(this).fadeOut(300);
-                    aside.fadeIn(600);
-                    $(aside).after( '<a id="back" href="#" class="box button-menu"> << </a>' ).fadeIn(600);
-
-                    event.preventdefault();
-                });
-            }, 3000);
-
-            
-                
-            // aside.animate({
-            //     marginLeft: "-=400"
-            // }, 1000, function(){
-            //     $('#back').hide();
-            //     $(this).after( '<a id="menu" href="#" class="box button-menu">M</a>' );
-            //     asideShowAnimate();
-            // });
         };
 
-        asideHideAnimate();
+        function isFirstAnimation(){
+            var time = 3000;
+            if(firstAnimation == false){
+                time = 400;
+            }
+            return time;
+        };
 
+        function menuShow(){
+            setTimeout(function(){
+                aside.after('<a id="menu" href="#" class="box button-menu">M</a>');
+                menuAddClick();
+            }, isFirstAnimation());
+        };
 
+        function backShow(){
+            $(aside).after('<a id="back" href="#" class="box button-menu"></a>');
+            backAddClick();
+        };
 
-        function asideShowAnimate(){
+        function menuAddClick(){
             var menu = $('#menu');
-                
             menu.on("click", function(event){
                 $(this).hide();
-                aside.animate({
-                    marginLeft: "+=400"
-                }, 1000, function(){
-                    $(this).after( '<a id="back" href="#" class="box button-menu"> << </a>' );
-                    $('#back').on("click", function(){ asideHideAnimate(); });
-                });
+                aside.fadeIn();
+                backShow();
 
                 event.preventdefault();
             });
         };
 
+        function backAddClick(){
+            var back = $('#back');
+            back.on("click", function(event){
+                $(this).hide();
+                aside.fadeOut();
+                menuShow();
+
+                event.preventdefault();
+            });
+        };
     </script>
 <% end -%>
