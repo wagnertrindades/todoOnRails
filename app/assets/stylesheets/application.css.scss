@@ -34,6 +34,10 @@ body {
   font-family: 'Lato', sans-serif;
 }
 
+h3{
+    color: white;
+}
+
 .clearfix:before,
 .clearfix:after {
     content: " ";
@@ -237,8 +241,12 @@ aside {
     }
 }
 
-.forms {
+.forms,
+.in-content {
     padding: 0 5%;
+    p{
+        color: #1F7972;
+    }
 }
 .forms-user {
     .actions{

@@ -1,30 +1,32 @@
 <% content_for :aside do %>
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "forms-user" }) do |f| %>
-    <div class="field">
-      <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true %>
-    </div>
-
-    <div class="field">
-      <%= f.label :password %><br />
-      <%= f.password_field :password, autocomplete: "off" %>
-    </div>
-
-    <% if devise_mapping.rememberable? -%>
+  <aside class="box">
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "forms-user" }) do |f| %>
       <div class="field">
-        <%= f.check_box :remember_me %>
-        <%= f.label "Lembrar-me" %>
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true %>
       </div>
-    <% end -%>
 
-    <div class="actions">
-      <%= f.submit "Entrar" %>
+      <div class="field">
+        <%= f.label :password %><br />
+        <%= f.password_field :password, autocomplete: "off" %>
+      </div>
+
+      <% if devise_mapping.rememberable? -%>
+        <div class="field">
+          <%= f.check_box :remember_me %>
+          <%= f.label "Lembrar-me" %>
+        </div>
+      <% end -%>
+
+      <div class="actions">
+        <%= f.submit "Entrar" %>
+      </div>
+    <% end %>
+    
+    <div class="links">
+      <%= render "devise/shared/links" %>
     </div>
-  <% end %>
-  
-  <div class="links">
-    <%= render "devise/shared/links" %>
-  </div>
+  </aside>
 <% end -%>
 
 <div class="text-welcome">
