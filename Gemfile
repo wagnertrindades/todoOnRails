@@ -26,3 +26,4 @@ end
 
 gem 'puma'
 gem 'devise'
+gem 'rails-i18n', '~> 4.0.0'
